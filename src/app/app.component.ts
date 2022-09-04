@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,9 @@ export class AppComponent {
 
   get footer(): string {
     return '2020 © Lista zadań,All rights reserved.';
+  }
+
+  getDate(): Date {
+    return new Date();
   }
 }
