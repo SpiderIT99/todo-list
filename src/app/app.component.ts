@@ -7,6 +7,8 @@ import { Task } from './task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  taskName = 'Wpisz co bedziesz robil';
+  taskDate = '';
   tasks: Task[] = [{
     name: 'gym',
     deadline: '01-03-2022',
@@ -41,12 +43,14 @@ export class AppComponent {
     this.tasks = [];
   }
 
-  createTask(name: string, deadline: string) {
+  createTask() {
     const task: Task = {
-      name,
-      deadline,
+      name: this.taskName,
+      deadline: this.taskDate,
       done: false
     };
     this.tasks.push(task);
+    this.taskName = '';
+    this.taskDate = '';
   }
 }
