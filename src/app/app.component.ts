@@ -7,6 +7,7 @@ import { Task } from './task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  editMode = false;
   taskName = 'Wpisz co bedziesz robil';
   taskDate = '';
   tasks: Task[] = [{
@@ -52,5 +53,9 @@ export class AppComponent {
     this.tasks.push(task);
     this.taskName = '';
     this.taskDate = '';
+  }
+
+  switchEditMode(){
+    this.editMode = !this.editMode;
   }
 }
