@@ -7,12 +7,13 @@ import { Task } from './task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  editMode = false;
   taskName = 'Wpisz co bedziesz robil';
   taskDate = '';
   tasks: Task[] = [{
     name: 'gym',
     deadline: '01-03-2022',
-    done: true
+    done: false
   },
   {
     name: 'homework',
@@ -52,5 +53,17 @@ export class AppComponent {
     this.tasks.push(task);
     this.taskName = '';
     this.taskDate = '';
+  }
+
+  switchEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  markTaskAsDone(task: Task) {
+    task.done = true;
+  }
+
+  delateTask(task: Task) {
+    this.tasks = this.tasks.filter(ele => ele !== task);
   }
 }
